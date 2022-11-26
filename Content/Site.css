@@ -1,0 +1,447 @@
+﻿
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+:root {
+    box-sizing: border-box
+}
+
+*,
+:after,
+:before {
+    box-sizing: inherit
+}
+
+.outline > * {
+    border: 2px dashed #388f3c
+}
+
+    .outline > * > * {
+        border: 1px dotted #fcc12d
+    }
+
+@font-face {
+    font-family: digital;
+    src: url(/adding-machine/static/media/DS-DIGIT.223f2246.TTF)
+}
+
+@font-face {
+    font-family: our-display-st;
+    src: url(/adding-machine/static/media/Our-Display-St.7696a8ad.ttf)
+}
+
+body {
+    background-image: -webkit-linear-gradient(bottom, #d5d4d0, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7);
+    /*background-image: linear-gradient(0deg, #d5d4d0 0, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7);*/
+    min-height: 100vh;
+    font-family: Open Sans, sans-serif
+}
+
+/*    body h1,
+    body h2,
+    body h3,
+    body h4,
+    body h5,
+    body h6,
+    body p {
+        font-weight: 300;
+        margin: 0
+    }*/
+
+header {
+    display: -ms-grid;
+    display: grid;
+    /*-ms-grid-columns: 50px 1.25fr;*/
+    grid-template-columns: 50px 1.25fr;
+    /*-ms-grid-rows: 50px;*/
+    grid-template-rows: 50px;
+    grid-gap: 15px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 10px
+}
+
+    header .logo-container img {
+        height: 50px
+    }
+
+    header span {
+        -ms-flex-item-align: center;
+        /*-ms-grid-row-align: center;*/
+        align-self: center;
+        font-family: our-display-st, monospace;
+        font-size: 2em
+    }
+
+@media (max-width:640px) {
+    header {
+        margin: 10px auto 10px 5vw
+    }
+}
+
+@media (max-width:640px) {
+    header span {
+        font-size: 1.5em
+    }
+}
+
+.container {
+    max-width: 40em;
+    margin: 0 auto
+}
+
+    .container .app {
+        background-image: -webkit-linear-gradient(bottom, #349C55, #323D48);
+        min-height: 100%;
+        display: -ms-grid;
+        display: grid;
+        /*-ms-grid-columns: .75fr 1.25fr;*/
+        grid-template-columns: .75fr 1.25fr;
+        /*-ms-grid-rows: 18.25em;*/
+        grid-template-rows: 18.25em;
+        grid-gap: 6px;
+        border-radius: 8px;
+        margin: 0 auto;
+        padding: 5px
+    }
+
+        .container .app .tape {
+            background-image: -webkit-linear-gradient(330deg, #fdfbfb, #c7c9c9);
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            border: 2px solid #000;
+            overflow: auto
+        }
+
+            .container .app .tape,
+            .container .app .tape .entries {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column
+            }
+
+                .container .app .tape .entries {
+                    margin: 0;
+                    padding: 5px 14px;
+                    list-style: none;
+                    height: 0
+                }
+
+                    .container .app .tape .entries li {
+                        -webkit-box-flex: 1;
+                        -ms-flex: 1 0 1.5em;
+                        flex: 1 0 1.5em;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-pack: justify;
+                        -ms-flex-pack: justify;
+                        justify-content: space-between;
+                        border-bottom: 1px dashed #87cefa
+                    }
+
+                        .container .app .tape .entries li.tape_total {
+                            border-top: 1px solid #000
+                        }
+
+                        .container .app .tape .entries li.red {
+                            color: red
+                        }
+
+                        .container .app .tape .entries li.blue {
+                            color: #4682b4
+                        }
+
+        .container .app .calculator .inputs {
+            display: -ms-grid;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 2.25em);
+            grid-gap: 6px
+        }
+
+            .container .app .calculator .inputs span {
+                background: -webkit-linear-gradient(top, #FF8B00, #FFB318 40%, #1c1c1c 150%), -webkit-linear-gradient(bottom, hsla(0, 0%, 100%, .4), rgba(0, 0, 0, .25) 200%);
+                /*background: -webkit-linear-gradient(top, #323232, #3f3f3f 40%, #1c1c1c 150%), -webkit-linear-gradient(bottom, hsla(0, 0%, 100%, .4), rgba(0, 0, 0, .25) 200%);*/
+                /*background: linear-gradient(180deg, #323232 0, #3f3f3f 40%, #1c1c1c 150%), linear-gradient(0deg, hsla(0, 0%, 100%, .4) 0, rgba(0, 0, 0, .25) 200%);*/
+                background-blend-mode: multiply;
+                border-radius: 4px;
+                padding-top: 5px;
+                text-align: center;
+                /*color: #d0cac3;*/
+                color: #080807;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none
+            }
+
+                .container .app .calculator .inputs span.calculate {
+                    color: #2258A5
+                }
+
+                .container .app .calculator .inputs span#clear-tape {
+                    /*-ms-grid-column-span: 2;*/
+                    -ms-grid-column: 1;
+                    grid-column: 1/span 2
+                }
+
+                .container .app .calculator .inputs span#total {
+                    /*-ms-grid-column-span: 2;*/
+                    -ms-grid-column: 3;
+                    grid-column: 3/span 1
+                }
+
+                .container .app .calculator .inputs span:hover {
+                    color: #0E7C4A;
+                    background: #FFB318
+                }
+
+                .container .app .calculator .inputs span:active {
+                    font-weight: 700
+                }
+
+@media (max-width:640px) {
+    .container .app {
+        /*-ms-grid-columns: auto;*/
+        grid-template-columns: auto;
+        max-width: 26em
+    }
+}
+
+@media (max-width:640px) {
+    .container .app .tape {
+        width: 80%;
+        justify-self: center
+    }
+}
+
+@-webkit-keyframes hvr-sink {
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px)
+    }
+
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes hvr-sink {
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px)
+    }
+
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+.hvr-sink {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent
+}
+
+.hvr-sink-active {
+    -webkit-animation-name: hvr-sink;
+    animation-name: hvr-sink;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1
+}
+
+/*@supports not ((display:-ms-grid) or (display:grid)) {
+    .app {
+        display: flex;
+        flex-wrap: wrap
+    }
+
+        .app > :nth-child(n) {
+            width: auto;
+            height: auto;
+            margin-top: 0;
+            margin-left: 6px
+        }
+
+        .app > :nth-child(n+3) {
+            margin-top: 6px
+        }
+
+        .app > :nth-child(odd) {
+            width: calc(99.99% * .75 - 1.5px)
+        }
+
+        .app > :nth-child(2n+2) {
+            width: calc(99.99% * 1.25 - -1.5px)
+        }
+
+        .app > :nth-child(odd) {
+            margin-left: 0
+        }
+
+        .app > :nth-child(1n+1) {
+            height: 18.25em
+        }
+
+    .app {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap
+    }
+
+    .inputs {
+        display: flex;
+        flex-wrap: wrap
+    }
+
+        .inputs > :nth-child(n) {
+            width: auto;
+            height: auto;
+            margin-top: 0;
+            margin-left: 6px
+        }
+
+        .inputs > :nth-child(n+4) {
+            margin-top: 6px
+        }
+
+        .inputs > :nth-child(22n+1) {
+            width: calc(99.99% * 1/2 - 3px)
+        }
+
+        .inputs > :nth-child(22n+2),
+        .inputs > :nth-child(22n+3) {
+            width: calc(99.99% * 1/4 - 4.5px)
+        }
+
+        .inputs > :nth-child(22n+4),
+        .inputs > :nth-child(22n+5),
+        .inputs > :nth-child(22n+6),
+        .inputs > :nth-child(22n+7),
+        .inputs > :nth-child(22n+8),
+        .inputs > :nth-child(22n+9),
+        .inputs > :nth-child(22n+10),
+        .inputs > :nth-child(22n+11),
+        .inputs > :nth-child(22n+12),
+        .inputs > :nth-child(22n+13),
+        .inputs > :nth-child(22n+14),
+        .inputs > :nth-child(22n+15),
+        .inputs > :nth-child(22n+16),
+        .inputs > :nth-child(22n+17),
+        .inputs > :nth-child(22n+18),
+        .inputs > :nth-child(22n+19) {
+            width: calc((99.99% - 18px) / 4)
+        }
+
+        .inputs > :nth-child(22n+20),
+        .inputs > :nth-child(22n+21) {
+            width: calc(99.99% * 1/4 - 4.5px)
+        }
+
+        .inputs > :nth-child(22n+22) {
+            width: calc(99.99% * 1/2 - 3px)
+        }
+
+        .inputs > :nth-child(22n+1),
+        .inputs > :nth-child(22n+4),
+        .inputs > :nth-child(22n+8),
+        .inputs > :nth-child(22n+12),
+        .inputs > :nth-child(22n+16),
+        .inputs > :nth-child(22n+20) {
+            margin-left: 0
+        }
+
+        .inputs > :nth-child(6n+1),
+        .inputs > :nth-child(6n+2),
+        .inputs > :nth-child(6n+3),
+        .inputs > :nth-child(6n+4),
+        .inputs > :nth-child(6n+5),
+        .inputs > :nth-child(6n+6) {
+            height: 2.25em
+        }
+
+    header {
+        display: flex;
+        flex-wrap: wrap
+    }
+
+        header > :nth-child(n) {
+            width: auto;
+            height: auto;
+            margin-top: 0;
+            margin-left: 15px
+        }
+
+        header > :nth-child(n+3) {
+            margin-top: 15px
+        }
+
+        header > :nth-child(odd) {
+            width: 50px
+        }
+
+        header > :nth-child(2n+2) {
+            width: calc((99.99% - 50px - 15px) / 1)
+        }
+
+        header > :nth-child(odd) {
+            margin-left: 0
+        }
+
+        header > :nth-child(1n+1) {
+            height: 50px
+        }
+
+    header {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap
+    }
+
+        header span {
+            padding-top: 8px;
+            padding-top: .5rem
+        }
+
+    @media (max-width:640px) {
+        .app {
+            display: flex;
+            flex-wrap: wrap
+        }
+
+            .app > :nth-child(n) {
+                width: auto;
+                height: auto;
+                margin-top: 0;
+                margin-left: 6px
+            }
+
+            .app > :nth-child(n+2) {
+                margin-top: 6px
+            }
+
+            .app > :nth-child(1n+1) {
+                width: calc((99.99% - 0px) / 1);
+                margin-left: 0;
+                height: 18.25em
+            }
+
+            .app .tape {
+                margin: 0 auto
+            }
+    }
+}*/
